@@ -1,0 +1,138 @@
+body{
+    background-image: url("../img/backg.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+main{
+    background: rgba(129, 129, 129, 0.95);
+    width: 80%;
+    margin: 0 auto;
+    height: 51em;
+    min-width: 900px;
+    overflow: auto;
+
+}
+
+.filter-categories {
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    background: #b1b1b1;
+    max-width: 200px;
+    float: left;
+    width: 20%;
+    position: fixed;
+}
+
+.view-categories{
+    float: right;
+    margin: 20px 20px 0 0;
+    padding: 0;
+    display: block;
+    width: 73%;
+}
+
+.view-category{
+    height: 150px;
+    background: #b1b1b1;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+.category-text{
+    width: 55%;
+    margin: 10px;
+    display: inline-block;
+}
+
+.ticket-img {
+    float: left;
+    height: 100%;
+    width: 150px
+}
+
+.ticket-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.category-btns {
+    float: right;
+    width: 100px;
+    text-align: center;
+}
+
+.category-btns button {
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
+}
+footer{
+    background: black;
+    text-align: center;
+    color: white;
+    height: 50px;
+}
+
+.details-img {
+    width: 25%;
+    height: 35%;
+    margin: 20px;
+    float: left;
+}
+
+.details-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.details-info{
+    font-size: 2em;
+    float: right;
+    width: 70%;
+    margin: 20px 0 20px 0;
+    padding: 0 10px;
+    color: white;
+}
+
+.details-info span {
+    display: block;
+    margin: 0 20px 20px  20px;
+}
+
+#createView {
+    border: 2px solid white;
+    width: 60%;
+    height: 75%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+#createView button{
+    border-radius: 20px;
+    width: 30%;
+
+}
+
+#createView span {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loginView{
+    width: 30%;
+    height: 50%;
+    margin: 50px auto;
+}
+
+#registerView{
+    width: 30%;
+    height: 50%;
+    margin: 50px auto;
+}
+
+
+
+
