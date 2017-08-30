@@ -6,6 +6,7 @@ handlers.viewTickets = function (ctx) {
         .catch(auth.handleError);
     */
 
+    auth.setAuth(ctx);
     ctx.loadPartials({
         header: "./templates/common/header.hbs",
         footer: "./templates/common/footer.hbs",

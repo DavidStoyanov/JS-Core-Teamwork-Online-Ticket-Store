@@ -1,4 +1,5 @@
 handlers.createTicket = function (ctx) {
+    auth.setAuth(ctx);
     ctx.loadPartials({
         header: "./templates/common/header.hbs",
         footer: "./templates/common/footer.hbs",

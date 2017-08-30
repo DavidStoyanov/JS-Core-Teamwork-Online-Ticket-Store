@@ -59,6 +59,11 @@ let auth = (() => {
         showError(reason.responseJSON.description);
     }
 
+    function setAuth(ctx) {
+        ctx.loggedIn = sessionStorage.getItem('authtoken');
+        ctx.username = sessionStorage.getItem('username');
+    }
+
     return {
         login,
         register,
@@ -66,6 +71,7 @@ let auth = (() => {
         saveSession,
         showInfo,
         showError,
-        handleError
+        handleError,
+        setAuth
     }
 })();

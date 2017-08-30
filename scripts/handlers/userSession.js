@@ -17,7 +17,7 @@ handlers.loginAction = function (ctx) {
         auth.showError("TODO");
         return;
     }
-    if (password.length < 6) {
+    if (password.length < 5) {
         auth.showError("TODO");
         return;
     }
@@ -29,7 +29,7 @@ handlers.loginAction = function (ctx) {
     function successLogin(userInfo) {
         auth.saveSession(userInfo);
         auth.showInfo("Login successful.");
-        ctx.redirect('#/catalog');
+        ctx.redirect('#/home');
     }
 };
 
@@ -52,7 +52,7 @@ handlers.registerAction = function (ctx) {
         auth.showError("TODO");
         return;
     }
-    if (password.length < 6 || !password.match(/^[a-zA-z0-9]+$/)) {
+    if (password.length < 5 || !password.match(/^[a-zA-z0-9]+$/)) {
         auth.showError("TODO");
         return;
     }
@@ -68,7 +68,7 @@ handlers.registerAction = function (ctx) {
     function successRegister(userInfo) {
         auth.saveSession(userInfo);
         auth.showInfo("User registration successful.");
-        ctx.redirect('#/catalog');
+        ctx.redirect('#/home');
     }
 };
 
@@ -79,6 +79,6 @@ handlers.logout = function (ctx) {
 
     function successLogout() {
         sessionStorage.clear();
-        ctx.redirect('#/welcome');
+        ctx.redirect('#/home');
     }
 };

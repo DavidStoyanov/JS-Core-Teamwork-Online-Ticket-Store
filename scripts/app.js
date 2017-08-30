@@ -8,8 +8,12 @@ $(() => {
         this.get('#/home', handlers.displayHome);
 
         this.get('#/login', handlers.login);
+        this.post('#/login', handlers.loginAction);
 
         this.get('#/register', handlers.register);
+        this.post('#/register', handlers.registerAction);
+
+        this.get('#/logout', handlers.logout);
 
         this.get('#/tickets', handlers.viewTickets);
 
