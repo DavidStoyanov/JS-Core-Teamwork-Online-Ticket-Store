@@ -1,6 +1,8 @@
 const handlers = {};
 
 $(() => {
+    auth.guestSession();
+
     Sammy("#container", function () {
         this.use('Handlebars', 'hbs');
 

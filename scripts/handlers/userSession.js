@@ -78,7 +78,7 @@ handlers.logout = function (ctx) {
         .catch(auth.handleError);
 
     function successLogout() {
-        sessionStorage.clear();
+        auth.guestSession();
         ctx.redirect('#/home');
     }
 };

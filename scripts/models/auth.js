@@ -10,8 +10,14 @@ let auth = (() => {
         return requester.post('user', 'login', 'basic', userData);
     }
 
+    // guest/register
+    function registerGuest() {
+        return requester.post('user', '', 'basic', {name:null});
+    }
+
     // user/register
     function register(username, password, name, email) {
+        let id = sessionStorage.getItem('userId');
         let userData = {
             username,
             password,
@@ -19,7 +25,8 @@ let auth = (() => {
             email
         };
 
-        return requester.post('user', '', 'basic', userData);
+        console.log(id);
+        return requester.update('user', id, 'kinvey', userData);
     }
 
     // user/logout
@@ -29,16 +36,6 @@ let auth = (() => {
         };
 
         return requester.post('user', '_logout', 'kinvey', logoutData);
-    }
-
-    function saveSession(userInfo) {
-        let id = userInfo['_id'];
-        let username = userInfo['username'];
-        let authtoken = userInfo['_kmd']['authtoken'];
-
-        sessionStorage.setItem('id', id);
-        sessionStorage.setItem('username', username);
-        sessionStorage.setItem('authtoken', authtoken);
     }
 
     function showInfo(message) {
@@ -59,19 +56,38 @@ let auth = (() => {
         showError(reason.responseJSON.description);
     }
 
+    function saveSession(userInfo, status = "regular") {
+        let id = userInfo['_id'];
+        let username = userInfo['username'];
+        let authtoken = userInfo['_kmd']['authtoken'];
+
+        sessionStorage.setItem('userId', id);
+        sessionStorage.setItem('username', username);
+        sessionStorage.setItem('authtoken', authtoken);
+        sessionStorage.setItem('status', status);
+    }
+
     function setAuth(ctx) {
-        ctx.loggedIn = sessionStorage.getItem('authtoken');
+        ctx.loggedIn = sessionStorage.getItem('status') === ("regular" || "administrator");
         ctx.username = sessionStorage.getItem('username');
+    }
+
+    function guestSession() {
+        auth.registerGuest()
+            .then((userInfo) => {auth.saveSession(userInfo, "guest")})
+            .catch(auth.handleError);
     }
 
     return {
         login,
         register,
+        registerGuest,
         logout,
-        saveSession,
         showInfo,
         showError,
         handleError,
+        saveSession,
+        guestSession,
         setAuth
     }
 })();

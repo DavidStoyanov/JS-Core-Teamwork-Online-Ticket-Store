@@ -1,6 +1,5 @@
 handlers.displayHome = function(ctx) {
-    ctx.loggedIn = sessionStorage.getItem('authtoken');
-    ctx.username = sessionStorage.getItem('username');
+    auth.setAuth(ctx);
     ctx.loadPartials({
         header: "./templates/common/header.hbs",
         footer: "./templates/common/footer.hbs",
