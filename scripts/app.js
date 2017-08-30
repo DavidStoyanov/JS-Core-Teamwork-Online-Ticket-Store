@@ -1,7 +1,7 @@
 const handlers = {};
 
 $(() => {
-    Sammy("#main", function () {
+    Sammy("#container", function () {
         this.use('Handlebars', 'hbs');
 
         this.get('index.html', handlers.displayHome);
@@ -11,6 +11,8 @@ $(() => {
 
         this.get('#/register', handlers.register);
 
-        this.get('#/tickets', handlers.tickets);
+        this.get('#/tickets', handlers.viewTickets);
+
+        this.get('#/create', handlers.createTicket)
     }).run();
 });
