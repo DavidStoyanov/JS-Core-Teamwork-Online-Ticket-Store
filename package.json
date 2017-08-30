@@ -1,0 +1,13 @@
+{
+  "name": "JSCoreTeamwork-OnlineTicketStore",
+  "version": "1.0.0",
+  "description": "",
+  "exclude": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "sammy": "^0.7.6"
+  }
+}

@@ -1,37 +1,22 @@
-function startApp() {
-    homeView();
+const handlers = {};
 
-    $("#linkHome").click(homeView);
-    $("#linkLogin").click(loginView);
-    $("#linkRegister").click(registrationView);
-    $("#linkLogout").click(logout);
-    $("#linkCreate").click(createView);
+$(() => {
+    Sammy("#container", function () {
+        this.use('Handlebars', 'hbs');
 
+        this.get('index.html', handlers.displayHome);
+        this.get('#/home', handlers.displayHome);
 
-    async function showView(name) {
-        // let header = await $.get('./templates/header.html');
-        // Handlebars.registerPartial('header', header);
+        this.get('#/login', handlers.login);
+        this.post('#/login', handlers.loginAction);
 
-        let template = await $.get(`./templates/${name}View.html`);
-        $('#main').html(template);
-    }
+        this.get('#/register', handlers.register);
+        this.post('#/register', handlers.registerAction);
 
-    async function homeView() {
-        await showView('home');
-        //TODO
-        $('#detailsEvent').click(() => showView('details'))
-    }
-    function loginView() {
-        showView('login');
-    }
-    function registrationView() {
-        showView('register');
-    }
+        this.get('#/logout', handlers.logout);
 
-    function createView() {
-        showView('create');
-    }
-    function logout() {
+        this.get('#/tickets', handlers.viewTickets);
 
-    }
-}
+        this.get('#/create', handlers.createTicket)
+    }).run();
+});
