@@ -1,0 +1,58 @@
+<form action="#/tickets" method="post">
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Title</label>
+        <div class="col-10">
+            <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+            <input class="form-control" type="text" value="Artisanal kale" id="description">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="location" class="col-2 col-form-label">Location</label>
+        <div class="col-10">
+            <input class="form-control" type="text" value="Artisanal kale" id="location">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="price" class="col-2 col-form-label">Price</label>
+        <div class="col-10">
+            <input class="form-control" type="number" value="20" id="price">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="availability" class="col-2 col-form-label">Availability</label>
+        <div class="col-10">
+            <input class="form-control" type="number" value="20" id="availability">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+        <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+                   id="example-datetime-local-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="img" class="col-2 col-form-label">Img URL</label>
+        <div class="col-10">
+            <input class="form-control" type="text" value="http." id="img">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label" for="category">Event type</label>
+        <div class="col-10">
+            <select class="custom-select mb-2 mr-auto mb-sm-0 form-group" id="category">
+                <option selected>Choose...</option>
+                <option value="Concerts">Concerts</option>
+                <option value="Festivals">Festivals</option>
+                <option value="Theater">Theater</option>
+                <option value="Plays">Plays</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
