@@ -1,0 +1,86 @@
+[
+  {
+    "_id":"599307d36af42b495f87bad1",
+    "title":"Game of thrones",
+    "description":"Game of Thrones has attracted record viewership on HBO and has a broad, active, international fan base. It has been acclaimed by critics, particularly for its acting, complex characters, story, scope, and production values, although its frequent use of nudity and violence (including sexual violence) has been criticized.",
+    "date": "23-09-2017",
+    "runningTime":"140",
+    "ticketsLeft":"2",
+    "price": "10",
+    "imageUrl":"./img/img1.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad2",
+    "title":"Stand up comedy Bulgaria",
+    "description":"Comedians and friends have fun and talk nonsense just to be cool :)",
+    "date": "01-10-2017",
+    "runningTime":"60",
+    "ticketsLeft":"3",
+    "price": "10",
+    "imageUrl":"./img/img2.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad3",
+    "title":"STING - 57th & 9th Tour",
+    "description":"WITH SPECIAL GUEST JOE SUMNER",
+    "date": "17-09-2017",
+    "runningTime":"100",
+    "ticketsLeft":"0",
+    "price": "10",
+    "imageUrl":"./img/img3.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad4",
+    "title":"Matilda the Musical",
+    "description":"Adapted from the incomparable children's novel by Roald Dahl, Matilda The Musical is the multi-award winning musical from the Royal Shakespeare Company that continues to delight audiences in the West End.",
+    "date": "14-09-2017",
+    "runningTime":"120",
+    "ticketsLeft":"56",
+    "price": "30",
+    "imageUrl":"./img/img4.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad5",
+    "title":"Hamlet",
+    "description":"A new revival of Shakespeare's classic tragedy Hamlet, adapted and directed by Robert Icke, starring Andrew Scott as the Danish Prince. The show transferred to the West End's Harold Pinter Theatre from 9 June 2017.",
+    "date": "05-09-2017",
+    "runningTime":"70",
+    "ticketsLeft":"100",
+    "price": "23",
+    "imageUrl":"./img/img5.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad6",
+    "title":"Ultra Brasil 2017",
+    "description":"Adam Beyer, Alesso, Armin van Buuren, David Guetta, Jamie Jones, Joseph Capriati, The Martinez Brothers, Sasha & John Digweed",
+    "date": "14-10-2017",
+    "runningTime":"140",
+    "ticketsLeft":"9",
+    "price": "160",
+    "imageUrl":"./img/img6.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  },
+  {
+    "_id":"599307d36af42b495f87bad7",
+    "title":"Wimbledon Tickets",
+    "description":"The greatest tennis players in the world would be competing this summer in one of the sport’s most coveted and prestigious grand slams.",
+    "date": "17-09-2017",
+    "runningTime":"140",
+    "ticketsLeft":"200",
+    "price": "100",
+    "imageUrl":"./img/img7.jpg",
+    "_acl":{"creator":"kid_B1zfi_e_Z"},
+    "_kmd":{"lmt":"2017-08-15T14:40:19.182Z", "ect":"2017-08-15T14:40:19.182Z"}
+  }
+]

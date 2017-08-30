@@ -1,5 +1,6 @@
 <article id="viewHome">
     {{> filterBox}}
-    <!-- TODO: #each tickets -->
-    {{> ticketBox}}
+    {{#each tickets}}
+        {{> ticketBox}}
+    {{/each}}
 </article>
