@@ -1,7 +1,9 @@
 const handlers = {};
 
 $(() => {
-    auth.guestSession();
+    if (!sessionStorage.getItem('authtoken')) {
+        auth.guestSession();
+    }
 
     Sammy("#container", function () {
         this.use('Handlebars', 'hbs');
