@@ -19,8 +19,13 @@ let ticketsService = (() => {
         return requester.post('appdata', 'tickets', 'kinvey', ticketData);
     }
 
+    function deleteTicket(id) {
+        return requester.remove('appdata', 'tickets/' + id, 'kinvey');
+    }
+
     return {
         loadAllTickets,
-        createTicket
+        createTicket,
+        deleteTicket
     }
 })();

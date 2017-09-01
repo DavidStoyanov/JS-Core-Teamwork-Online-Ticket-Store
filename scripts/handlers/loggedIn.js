@@ -15,6 +15,28 @@ handlers.viewTickets = function (ctx) {
             page: "./templates/tickets/viewTickets/ticketsPage.hbs"
         }).then(function () {
             this.partial("./templates/common/main.hbs")
+                .then(attachDeleteEvents);
+
+            function attachDeleteEvents() {
+                let deleteButtons = $('#viewHome').find('.btn-delete');
+                if(sessionStorage.getItem('status') !== 'administrator') {
+                    deleteButtons.hide();
+                    return
+                }
+
+                deleteButtons.click(deleteTickets);
+
+                function deleteTickets() {
+                    let ticketId = $(this).attr('data-id');
+                    ticketsService.deleteTicket(ticketId)
+                        .then(successDeleteTicket)
+                        .catch(message.handleError);
+
+                    function successDeleteTicket() {
+                        location.reload();
+                    }
+                }
+            }
         });
     }
 };
