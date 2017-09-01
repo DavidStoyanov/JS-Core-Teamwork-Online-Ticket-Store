@@ -21,6 +21,7 @@ $(() => {
 
         this.get('#/tickets', handlers.viewTickets);
 
-        this.get('#/create', handlers.createTicket)
+        this.get('#/create', handlers.createTicket);
+        this.post('#/create', handlers.createTicketAction);
     }).run();
 });

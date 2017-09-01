@@ -15,6 +15,11 @@ main{
     max-height: 654px;
 }
 
+.err404 {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 .filter-categories {
     display: block;
     margin: 20px;
