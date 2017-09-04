@@ -64,6 +64,12 @@ main{
     text-align: center;
 }
 
+.category-btns a {
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
+}
+
 .category-btns button {
     width: 100%;
     margin: 10px 0 0 0;
@@ -106,6 +112,11 @@ footer{
 .details-info span {
     display: block;
     margin: 0 20px 20px  20px;
+}
+
+.details-info h2 {
+    color: black;
+    display: inline-block;
 }
 
 #createView {

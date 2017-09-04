@@ -4,7 +4,12 @@ let ticketsService = (() => {
         return requester.get('appdata', 'tickets', 'kinvey');
     }
 
+    function loadAllTicket(id) {
+        return requester.get('appdata', 'tickets/' + id, 'kinvey');
+    }
+
     return {
-        loadAllTickets
+        loadAllTickets,
+        loadAllTicket
     }
 })();

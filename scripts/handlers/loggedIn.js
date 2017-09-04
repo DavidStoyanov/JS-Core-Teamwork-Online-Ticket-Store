@@ -18,3 +18,23 @@ handlers.viewTickets = function (ctx) {
         });
     }
 };
+
+handlers.viewTicket = function (ctx) {
+    let id = ctx.params.id.substr(0);
+    ticketsService.loadAllTicket(id)
+        .then(successLoadTickets)
+        .catch(auth.handleError);
+
+    function successLoadTickets(ticketData) {
+        ctx.ticket = ticketData;
+        auth.setAuth(ctx);
+        ctx.loadPartials({
+            header: "./templates/common/header.hbs",
+            footer: "./templates/common/footer.hbs",
+            detailsView: "./templates/tickets/detailsTicket/detailsView.hbs",
+            page: "./templates/tickets/detailsTicket/detailsPage.hbs"
+        }).then(function () {
+            this.partial("./templates/common/main.hbs");
+        });
+    }
+};
