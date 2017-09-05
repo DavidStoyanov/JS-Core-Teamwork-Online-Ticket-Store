@@ -40,7 +40,7 @@ main{
 }
 
 .view-category{
-    height: 150px;
+    height: 160px;
     background: #b1b1b1;
     margin: 0 0 20px 0;
     width: 100%;
@@ -127,7 +127,7 @@ footer{
 #createView {
     border: 2px solid white;
     width: 60%;
-    height: 75%;
+    height: 85%;
     margin: 20px auto;
     padding: 20px;
 }
