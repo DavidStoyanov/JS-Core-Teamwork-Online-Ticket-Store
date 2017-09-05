@@ -15,6 +15,11 @@ main{
     max-height: 654px;
 }
 
+.err404 {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 .filter-categories {
     display: block;
     margin: 20px;
@@ -150,6 +155,9 @@ footer{
     margin: 50px auto;
 }
 
-
+#deleteConfirmation {
+    display: flex;
+    opacity: 0.95;
+}
 
 

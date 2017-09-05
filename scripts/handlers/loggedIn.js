@@ -4,7 +4,6 @@ handlers.viewTickets = function (ctx) {
         .catch(auth.handleError);
 
     function successLoadTickets(ticketsData) {
-        console.log(ticketsData);
         ctx.tickets = ticketsData;
         auth.setAuth(ctx);
         ctx.loadPartials({
@@ -14,14 +13,14 @@ handlers.viewTickets = function (ctx) {
             ticketBox: "./templates/tickets/viewTickets/ticketBox.hbs",
             page: "./templates/tickets/viewTickets/ticketsPage.hbs"
         }).then(function () {
-            this.partial("./templates/common/main.hbs")
+            this.partial("./templates/common/main.hbs");
         });
     }
 };
 
 handlers.viewTicket = function (ctx) {
     let id = ctx.params.id.substr(0);
-    ticketsService.loadAllTicket(id)
+    ticketsService.loadTicket(id)
         .then(successLoadTickets)
         .catch(auth.handleError);
 

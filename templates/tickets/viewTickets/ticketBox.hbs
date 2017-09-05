@@ -8,9 +8,14 @@
             <span>{{description}}</span>
         </div>
         <div class="category-btns">
+
             <button type="button" id="buyNow" class="btn btn-info btn-sm">Buy now</button>
+
             <a type="button" id="detailsEvent" href="#/details/{{_id}}" class="btn btn-warning btn-sm">Details</a>
-            <button type="button" id="deleteEvent" class="btn btn-danger btn-sm">Delete</button>
+
+            <a type="button" id="editEvent" href="#/ticket/edit/:{{_id}}" class="btn btn-danger btn-sm">Edit</a>
+            <a type="button" id="deleteEvent" href="#/ticket/delete/:{{_id}}" class="btn btn-danger btn-sm">Delete</a>
+
         </div>
     </div>
 </article>

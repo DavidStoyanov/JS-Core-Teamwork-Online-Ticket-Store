@@ -1,0 +1,21 @@
+<div id="deleteConfirmation">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Are you sure you want to delete &ldquo;{{ticket.title}}&rdquo;?</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to delete this ticket.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return
+                    to the page.
+                </p>
+            </div>
+            <form class="modal-footer" action="#/ticket/delete/:id" method="post">
+                <a type="button" class="btn btn-success btn-sm" href="#/tickets">Cancel</a>
+                <button type="submit" class="btn btn-danger btn-sm" href="#/ticket/delete/:{{ticket._id}}">Delete Ticket</button>
+            </form>
+        </div>
+    </div>
+</div>

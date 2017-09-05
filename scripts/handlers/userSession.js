@@ -14,11 +14,11 @@ handlers.loginAction = function (ctx) {
 
     //TODO Validation
     if (username.length < 3) {
-        auth.showError("TODO");
+        message.showError("TODO");
         return;
     }
     if (password.length < 5) {
-        auth.showError("TODO");
+        message.showError("TODO");
         return;
     }
 
@@ -28,7 +28,7 @@ handlers.loginAction = function (ctx) {
 
     function successLogin(userInfo) {
         auth.saveSession(userInfo);
-        auth.showInfo("Login successful.");
+        message.showInfo("Login successful.");
         ctx.redirect('#/home');
     }
 };
@@ -49,15 +49,15 @@ handlers.registerAction = function (ctx) {
 
     //TODO: Validation
     if (username.length < 3 || !username.match(/^[\w-.]+$/)) {
-        auth.showError("TODO");
+        message.showError("TODO");
         return;
     }
     if (password.length < 5 || !password.match(/^[a-zA-z0-9]+$/)) {
-        auth.showError("TODO");
+        message.showError("TODO");
         return;
     }
     if (password !== repeatPass) {
-        auth.showError("TODO");
+        message.showError("TODO");
         return;
     }
 
@@ -67,7 +67,7 @@ handlers.registerAction = function (ctx) {
 
     function successRegister(userInfo) {
         auth.saveSession(userInfo);
-        auth.showInfo("User registration successful.");
+        message.showInfo("User registration successful.");
         ctx.redirect('#/home');
     }
 };
@@ -78,7 +78,7 @@ handlers.logout = function (ctx) {
         .catch(auth.handleError);
 
     function successLogout() {
-        auth.guestSession();
+        sessionStorage.clear();
         ctx.redirect('#/home');
     }
 };

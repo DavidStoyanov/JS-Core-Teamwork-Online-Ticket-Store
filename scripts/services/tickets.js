@@ -4,12 +4,39 @@ let ticketsService = (() => {
         return requester.get('appdata', 'tickets', 'kinvey');
     }
 
-    function loadAllTicket(id) {
-        return requester.get('appdata', 'tickets/' + id, 'kinvey');
+    function loadTicket(ticketId) {
+        return requester.get('appdata', 'tickets/' + ticketId, 'kinvey');
     }
+
+    function createTicket(title, description, location, price, availability, dateAndTime, imageUrl, eventType) {
+        let ticketData = {
+            title,
+            description,
+            location,
+            price,
+            availability,
+            dateAndTime,
+            imageUrl,
+            eventType
+        };
+
+        return requester.post('appdata', 'tickets', 'kinvey', ticketData);
+    }
+
+    function editTicket(ticketData, ticketId) {
+        return requester.update('appdata', 'tickets/' + ticketId, 'kinvey', ticketData);
+    }
+
+    function deleteTicket(id) {
+        return requester.remove('appdata', 'tickets/' + id, 'kinvey');
+    }
+
 
     return {
         loadAllTickets,
-        loadAllTicket
+        loadTicket,
+        createTicket,
+        editTicket,
+        deleteTicket
     }
 })();

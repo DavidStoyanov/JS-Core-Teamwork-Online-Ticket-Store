@@ -12,7 +12,9 @@ let auth = (() => {
 
     // guest/register
     function registerGuest() {
-        return requester.post('user', '', 'basic', {name:null});
+        let guestData = {status:"guest"};
+
+        return requester.post('user', '', 'basic', guestData);
     }
 
     // user/register
@@ -25,7 +27,8 @@ let auth = (() => {
             email
         };
 
-        console.log(id);
+        userData.status = "regular";
+
         return requester.update('user', id, 'kinvey', userData);
     }
 
@@ -38,22 +41,12 @@ let auth = (() => {
         return requester.post('user', '_logout', 'kinvey', logoutData);
     }
 
-    function showInfo(message) {
-        let infoBox = $('#notifications').find('#infoBox');
-        infoBox.html(`${message}`);
-        infoBox.show();
-        setTimeout(() => infoBox.fadeOut(), 3000);
-    }
-
-    function showError(message) {
-        let errorBox = $('#notifications').find('#errorBox');
-        errorBox.html(`${message}`);
-        errorBox.show();
-        setTimeout(() => errorBox.fadeOut(), 3000);
-    }
-
-    function handleError(reason) {
-        showError(reason.responseJSON.description);
+    // templates
+    function setAuth(ctx) {
+        ctx.username = sessionStorage.getItem('username');
+        ctx.isAdmin = sessionStorage.getItem('status') === "administrator";
+        ctx.loggedIn = sessionStorage.getItem('status') === "regular" ||
+            sessionStorage.getItem('status') === "administrator";
     }
 
     function saveSession(userInfo, status = "regular") {
@@ -64,12 +57,8 @@ let auth = (() => {
         sessionStorage.setItem('userId', id);
         sessionStorage.setItem('username', username);
         sessionStorage.setItem('authtoken', authtoken);
-        sessionStorage.setItem('status', status);
-    }
-
-    function setAuth(ctx) {
-        ctx.loggedIn = sessionStorage.getItem('status') === ("regular" || "administrator");
-        ctx.username = sessionStorage.getItem('username');
+        sessionStorage.setItem('status', userInfo.status ?
+            userInfo.status : status);
     }
 
     function guestSession() {
@@ -78,16 +67,18 @@ let auth = (() => {
             .catch(auth.handleError);
     }
 
+    function getUser(id) {
+        return requester.get('user', id, 'kinvey');
+    }
+
     return {
         login,
         register,
         registerGuest,
         logout,
-        showInfo,
-        showError,
-        handleError,
         saveSession,
         guestSession,
-        setAuth
+        setAuth,
+        getUser
     }
 })();
