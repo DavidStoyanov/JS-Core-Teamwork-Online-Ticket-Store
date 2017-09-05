@@ -21,7 +21,12 @@ $(() => {
 
         this.get('#/tickets', handlers.viewTickets);
 
-        this.get('#/create', handlers.createTicket);
-        this.post('#/create', handlers.createTicketAction);
+        this.get('#/tickets/:id', handlers.ticketDetails);
+
+        this.get('#/ticket/create', handlers.createTicket);
+        this.post('#/ticket/create', handlers.createTicketAction);
+
+        this.get('#/ticket/edit/:id', handlers.editTicket);
+        this.post('#/ticket/edit/:id', handlers.editTicketAction);
     }).run();
 });

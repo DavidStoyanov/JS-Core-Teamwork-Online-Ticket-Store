@@ -1,0 +1,57 @@
+<form action="#/ticket/edit" method="post">
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Title</label>
+        <div class="col-10">
+            <input class="form-control" name="title" type="text" value="{{title}}" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+            <input class="form-control" name="description" type="text" value="{{description}}" id="description">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="location" class="col-2 col-form-label">Location</label>
+        <div class="col-10">
+            <input class="form-control" name="location" type="text" value="{{location}}" id="location">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="price" class="col-2 col-form-label">Price</label>
+        <div class="col-10">
+            <input class="form-control" name="price" type="number" value="{{price}}" id="price">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="availability" class="col-2 col-form-label">Availability</label>
+        <div class="col-10">
+            <input class="form-control" name="availability" type="number" value="{{availability}}" id="availability">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+        <div class="col-10">
+            <input class="form-control" name="dateAndTime" type="datetime-local" value="{{dateAndTime}}"
+                   id="example-datetime-local-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="img" class="col-2 col-form-label">Img URL</label>
+        <div class="col-10">
+            <input class="form-control" name="imageUrl" type="text" value="{{imageUrl}}" id="img">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label" for="category">Event type</label>
+        <div class="col-10">
+            <select class="custom-select mb-2 mr-auto mb-sm-0 form-group" name="eventType" id="category">
+                <option {{#if Concerts}}selected{{/if}} value="Concerts">Concerts</option>
+                <option {{#if Festivals}}selected{{/if}} value="Festivals">Festivals</option>
+                <option {{#if Theater}}selected{{/if}} value="Theater">Theater</option>
+                <option {{#if Plays}}selected{{/if}} value="Plays">Plays</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
