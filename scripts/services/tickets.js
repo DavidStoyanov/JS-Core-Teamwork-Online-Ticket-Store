@@ -31,6 +31,7 @@ let ticketsService = (() => {
         return requester.remove('appdata', 'tickets/' + id, 'kinvey');
     }
 
+
     return {
         loadAllTickets,
         loadTicket,
