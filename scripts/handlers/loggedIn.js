@@ -37,3 +37,37 @@ handlers.viewTicket = function (ctx) {
         });
     }
 };
+
+handlers.viewProfile = function (ctx) {
+    let userId = sessionStorage.getItem('userId');
+    userService.getUser(userId)
+        .then(successGetUser)
+        .catch(auth.handleError);
+
+    function successGetUser(userInfo) {
+        let hours = new Date(Date.now()).getHours();
+
+        if (hours >= 12 && hours < 16)
+            ctx.greeting = "Good afternoon";
+        if (hours >= 16 && hours < 24)
+            ctx.greeting = "Good evening";
+        else
+            ctx.greeting = "Good morning";
+
+        userInfo.imageUrl ?
+            ctx.imageUrl = userInfo.imageUrl :
+            ctx.imageUrl = "./img/unknown_user.png";
+
+        ctx.userInfo = userInfo;
+        ctx.memberSince = userInfo._kmd.ect.split("T")[0];
+
+        auth.setAuth(ctx);
+        ctx.loadPartials({
+            header: "./templates/common/header.hbs",
+            footer: "./templates/common/footer.hbs",
+            page: "./templates/profile/profile.hbs"
+        }).then(function () {
+            this.partial("./templates/common/main.hbs");
+        });
+    }
+};

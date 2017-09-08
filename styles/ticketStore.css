@@ -161,3 +161,40 @@ footer{
 }
 
 
+
+
+#greeting {
+    display: flex;
+    margin: 30px 30px 0;
+}
+
+.profile {
+    display: inline-flex;
+}
+
+.profile > div {
+    margin: 30px;
+}
+
+#avatar > img {
+    width: 200px;
+    height: 200px;
+}
+
+#content {
+    position: static;
+    font-size: 20px;
+}
+
+.profile-info {
+    display: inline-flex;
+    margin-bottom: 30px;
+}
+
+.profile-label {
+    width: 250px;
+}
+
+.profile-text {
+    margin-right: 1000px;
+}

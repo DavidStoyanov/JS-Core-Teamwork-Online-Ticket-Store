@@ -1,5 +1,5 @@
 handlers.createTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 
@@ -44,7 +44,7 @@ handlers.createTicketAction = function (ctx) {
 };
 
 handlers.editTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 
@@ -107,7 +107,7 @@ handlers.editTicketAction = function (ctx) {
 };
 
 handlers.deleteTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 

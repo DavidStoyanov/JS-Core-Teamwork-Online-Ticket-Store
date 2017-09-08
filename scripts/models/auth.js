@@ -67,10 +67,6 @@ let auth = (() => {
             .catch(auth.handleError);
     }
 
-    function getUser(id) {
-        return requester.get('user', id, 'kinvey');
-    }
-
     return {
         login,
         register,
@@ -78,7 +74,6 @@ let auth = (() => {
         logout,
         saveSession,
         guestSession,
-        setAuth,
-        getUser
+        setAuth
     }
 })();

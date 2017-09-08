@@ -20,6 +20,7 @@ $(() => {
         this.get('#/logout', handlers.logout);
 
         this.get('#/tickets', handlers.viewTickets);
+        this.get('#/details/:id', handlers.viewTicket);
 
         this.get('#/ticket/create', handlers.createTicket);
         this.post('#/ticket/create', handlers.createTicketAction);
@@ -30,6 +31,8 @@ $(() => {
         this.get('#/ticket/delete/:id', handlers.deleteTicket);
         this.post('#/ticket/delete/:id', handlers.deleteTicketAction);
 
-        this.get('#/details/:id', handlers.viewTicket);
+        this.get('#/profile', handlers.viewProfile);
+        //this.get('#/profile/:id', handlers.viewOtherProfile);
+
     }).run();
 });
