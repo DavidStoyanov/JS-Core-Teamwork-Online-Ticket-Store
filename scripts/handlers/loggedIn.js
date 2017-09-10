@@ -14,7 +14,7 @@ handlers.viewTickets = function (ctx) {
             page: "./templates/tickets/viewTickets/ticketsPage.hbs"
         }).then(function () {
             this.partial("./templates/common/main.hbs")
-                .then(userService.avatarShow);
+                .then(auth.avatarDropDown);
         });
     }
 };
@@ -35,7 +35,7 @@ handlers.viewTicket = function (ctx) {
             page: "./templates/tickets/detailsTicket/detailsPage.hbs"
         }).then(function () {
             this.partial("./templates/common/main.hbs")
-                .then(userService.avatarShow);
+                .then(auth.avatarDropDown);
         });
     }
 };
@@ -70,7 +70,7 @@ handlers.viewProfile = function (ctx) {
             page: "./templates/profile/profile.hbs"
         }).then(function () {
             this.partial("./templates/common/main.hbs")
-                .then(userService.avatarShow);
+                .then(auth.avatarDropDown);
         });
     }
 };

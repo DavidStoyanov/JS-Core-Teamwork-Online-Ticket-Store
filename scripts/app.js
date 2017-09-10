@@ -35,31 +35,4 @@ $(() => {
         //this.get('#/profile/:id', handlers.viewOtherProfile);
 
     }).run();
-
-    //setTimeout(avatar, 1000);
-
-    function avatar() {
-        userService.getUser(sessionStorage.getItem('userId'))
-            .then(successGetUser)
-            .catch(message.handleError);
-
-
-        function successGetUser(userInfo) {
-            let avatar = $('#avatar-img');
-            let dropdown = $('#avatar-dropdown');
-
-            console.log([avatar,dropdown, userInfo]);
-
-            avatar.attr('src', userInfo.imageUrl ?
-                `${userInfo.imageUrl}` :
-                `./img/unknown_user.png`);
-
-            avatar.click(() => {
-                dropdown.hasClass('avatar-dropdown') ?
-                    dropdown.removeClass('avatar-dropdown') :
-                    dropdown.addClass('avatar-dropdown');
-            });
-        }
-    }
-
 });

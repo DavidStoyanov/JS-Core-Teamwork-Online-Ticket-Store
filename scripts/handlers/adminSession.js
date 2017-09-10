@@ -18,7 +18,7 @@ handlers.createTicket = function (ctx) {
         auth.setAuth(ctx);
         ctx.loadPartials(partials).then(function () {
             this.partial("./templates/common/main.hbs")
-                .then(userService.avatarShow);
+                .then(auth.avatarDropDown);
         });
     }
 };
@@ -75,7 +75,7 @@ handlers.editTicket = function (ctx) {
             ctx[ticketInfo.eventType] = true;
             ctx.loadPartials(partials).then(function () {
                 this.partial("./templates/common/main.hbs")
-                    .then(userService.avatarShow);
+                    .then(auth.avatarDropDown);
             });
         }
     }
@@ -137,7 +137,7 @@ handlers.deleteTicket = function (ctx) {
             ctx[ticketInfo.eventType] = true;
             ctx.loadPartials(partials).then(function () {
                 this.partial("./templates/common/main.hbs")
-                    .then(userService.avatarShow);
+                    .then(auth.avatarDropDown);
             });
         }
     }

@@ -11,6 +11,6 @@ handlers.displayHome = function(ctx) {
         page: "./templates/home/home.hbs",
     }).then(function () {
         this.partial("./templates/common/main.hbs")
-            .then(userService.avatarShow);
+            .then(auth.avatarDropDown);
     })
 };

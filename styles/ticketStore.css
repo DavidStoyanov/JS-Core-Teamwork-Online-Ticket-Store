@@ -200,7 +200,6 @@ footer{
 }
 
 
-
 #avatar-img {
     width: 40px;
     height: 40px;
@@ -210,4 +209,25 @@ footer{
 
 .avatar-dropdown {
     display: block;
+}
+
+
+input[type=search] {
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    display: block;
+    padding: 3px;
+    line-height: 2;
+    font-family: Georgia;
+}
+
+
+#search {
+    cursor: pointer;
+}
+
+.equalButton{
+    height: 10px;
+    width: 10px;
+    transform: scale(2);
 }
