@@ -198,3 +198,16 @@ footer{
 .profile-text {
     margin-right: 1000px;
 }
+
+
+
+#avatar-img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.avatar-dropdown {
+    display: block;
+}

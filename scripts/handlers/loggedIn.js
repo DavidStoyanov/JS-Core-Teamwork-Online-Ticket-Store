@@ -13,7 +13,8 @@ handlers.viewTickets = function (ctx) {
             ticketBox: "./templates/tickets/viewTickets/ticketBox.hbs",
             page: "./templates/tickets/viewTickets/ticketsPage.hbs"
         }).then(function () {
-            this.partial("./templates/common/main.hbs");
+            this.partial("./templates/common/main.hbs")
+                .then(userService.avatarShow);
         });
     }
 };
@@ -33,7 +34,8 @@ handlers.viewTicket = function (ctx) {
             detailsView: "./templates/tickets/detailsTicket/detailsView.hbs",
             page: "./templates/tickets/detailsTicket/detailsPage.hbs"
         }).then(function () {
-            this.partial("./templates/common/main.hbs");
+            this.partial("./templates/common/main.hbs")
+                .then(userService.avatarShow);
         });
     }
 };
@@ -67,7 +69,8 @@ handlers.viewProfile = function (ctx) {
             footer: "./templates/common/footer.hbs",
             page: "./templates/profile/profile.hbs"
         }).then(function () {
-            this.partial("./templates/common/main.hbs");
+            this.partial("./templates/common/main.hbs")
+                .then(userService.avatarShow);
         });
     }
 };
