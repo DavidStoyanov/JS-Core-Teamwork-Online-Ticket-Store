@@ -166,10 +166,20 @@ footer{
 
 
 
-
 #greeting {
+    height: 50px;
     display: flex;
+    position: relative;
     margin: 30px 30px 0;
+}
+
+
+.avatarTopButton {
+    position: absolute;
+    width: 125px;
+    height: 40px;
+    right: 10px;
+    top: 5px;
 }
 
 .profile {
@@ -178,6 +188,10 @@ footer{
 
 .profile > div {
     margin: 30px;
+}
+
+#avatar {
+    width: 200px;
 }
 
 #avatar > img {
@@ -197,6 +211,32 @@ td.spaceRight {
     padding-right:50px
 }
 
+.inline-custom {
+    display: inline-flex;
+}
+
+.inline-custom > span {
+    margin-right: 15px;
+}
+
+.save {
+    display: none;
+}
+
+.avatarChangeBox {
+    position: relative;
+    top: 10px;
+}
+
+.avatarChangeBox > textarea {
+    resize: none;
+    width: 200px;
+    height: 75px;
+}
+
+.avatarBtn {
+    width: 200px;
+}
 
 
 #avatar-img {
@@ -225,4 +265,12 @@ input[type=search] {
     height: 10px;
     width: 10px;
     transform: scale(2);
+}
+
+
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
 }

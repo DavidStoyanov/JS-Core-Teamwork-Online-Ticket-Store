@@ -1,5 +1,6 @@
 <div id="greeting">
-    <h3>{{greeting}}, {{userInfo.username}}</h3>
+    <h3>{{greeting}}, <span>{{userInfo.username}}</span></h3>
+    <button onclick="window.location.hash = '#/profile-edit'" class="avatarTopButton btn btn-success btn-sm">Edit Profile</button>
 </div>
 <div class="profile">
     <div id="avatar">
@@ -17,7 +18,7 @@
             </tr>
             <tr class="spaceUnder">
                 <td class="spaceRight"><h4>Member since:</h4></td>
-                <td><h5>{{memberSince}}</h5></td>
+                <td><h5 id="memberSince">{{memberSince}}</h5></td>
             </tr>
         </table>
     </div>

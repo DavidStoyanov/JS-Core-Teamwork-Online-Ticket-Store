@@ -83,6 +83,10 @@ let auth = (() => {
             }
         });
 
+        dropdown.click(() => {
+            dropdown.removeClass('avatar-dropdown');
+        });
+
         avatar.click(() => {
             dropdown.hasClass('avatar-dropdown') ?
                 dropdown.removeClass('avatar-dropdown') :
