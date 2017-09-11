@@ -20,6 +20,7 @@ $(() => {
         this.get('#/logout', handlers.logout);
 
         this.get('#/tickets', handlers.viewTickets);
+        this.get('#/search', handlers.searchTickets);
 
         this.get('#/ticket/create', handlers.createTicket);
         this.post('#/ticket/create', handlers.createTicketAction);
@@ -32,4 +33,5 @@ $(() => {
 
         this.get('#/details/:id', handlers.viewTicket);
     }).run();
+
 });
