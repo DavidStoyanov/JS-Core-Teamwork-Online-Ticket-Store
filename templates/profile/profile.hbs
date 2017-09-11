@@ -6,29 +6,19 @@
         <img src="{{imageUrl}}">
     </div>
     <div id="content">
-        <div class="profile-info">
-            <div class="profile-label">
-                <h4 class="content-box">Name:</h4>
-            </div>
-            <div class="profile-text">
-                {{userInfo.name}}
-            </div>
-        </div>
-        <div class="profile-info">
-            <div class="profile-label">
-                <h4 class="content-box">Email:</h4>
-            </div>
-            <div class="profile-text">
-                {{userInfo.email}}
-            </div>
-        </div>
-        <div class="profile-info">
-            <div class="profile-label">
-                <h4 class="content-box">Member since:</h4>
-            </div>
-            <div class="profile-text">
-                {{memberSince}}
-            </div>
-        </div>
+        <table>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Name:</h4></td>
+                <td><h5>{{userInfo.name}}</h5></td>
+            </tr>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Email:</h4></td>
+                <td><h5>{{userInfo.email}}</h5></td>
+            </tr>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Member since:</h4></td>
+                <td><h5>{{memberSince}}</h5></td>
+            </tr>
+        </table>
     </div>
 </div>

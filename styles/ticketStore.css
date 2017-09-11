@@ -15,6 +15,10 @@ main{
     max-height: 654px;
 }
 
+button, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+}
+
 .err404 {
     max-height: 100%;
     max-width: 100%;
@@ -183,21 +187,16 @@ footer{
 
 #content {
     position: static;
-    font-size: 20px;
 }
 
-.profile-info {
-    display: inline-flex;
-    margin-bottom: 30px;
+tr.spaceUnder>td {
+    padding-bottom: 2em;
 }
 
-.profile-label {
-    width: 250px;
+td.spaceRight {
+    padding-right:50px
 }
 
-.profile-text {
-    margin-right: 1000px;
-}
 
 
 #avatar-img {
@@ -221,10 +220,6 @@ input[type=search] {
     font-family: Georgia;
 }
 
-
-#search {
-    cursor: pointer;
-}
 
 .equalButton{
     height: 10px;

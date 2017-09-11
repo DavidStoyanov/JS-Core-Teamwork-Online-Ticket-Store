@@ -75,6 +75,14 @@ let auth = (() => {
         let avatar = $('#avatar-img');
         let dropdown = $('#avatar-dropdown');
 
+        $(document).click(function(event) {
+            if(!$(event.target).closest(avatar).length) {
+                if(dropdown.is(":visible")) {
+                    dropdown.removeClass('avatar-dropdown')
+                }
+            }
+        });
+
         avatar.click(() => {
             dropdown.hasClass('avatar-dropdown') ?
                 dropdown.removeClass('avatar-dropdown') :
