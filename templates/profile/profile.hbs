@@ -1,0 +1,25 @@
+<div id="greeting">
+    <h3>{{greeting}}, <span>{{userInfo.username}}</span></h3>
+    <button onclick="window.location.hash = '#/profile-edit'" class="avatarTopButton btn btn-success btn-sm">Edit Profile</button>
+</div>
+<div class="profile">
+    <div id="avatar">
+        <img src="{{imageUrl}}">
+    </div>
+    <div id="content">
+        <table>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Name:</h4></td>
+                <td><h5>{{userInfo.name}}</h5></td>
+            </tr>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Email:</h4></td>
+                <td><h5>{{userInfo.email}}</h5></td>
+            </tr>
+            <tr class="spaceUnder">
+                <td class="spaceRight"><h4>Member since:</h4></td>
+                <td><h5 id="memberSince">{{memberSince}}</h5></td>
+            </tr>
+        </table>
+    </div>
+</div>

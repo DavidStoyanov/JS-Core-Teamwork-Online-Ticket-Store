@@ -15,6 +15,10 @@ main{
     max-height: 654px;
 }
 
+button, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+}
+
 .err404 {
     max-height: 100%;
     max-width: 100%;
@@ -161,3 +165,112 @@ footer{
 }
 
 
+
+#greeting {
+    height: 50px;
+    display: flex;
+    position: relative;
+    margin: 30px 30px 0;
+}
+
+
+.avatarTopButton {
+    position: absolute;
+    width: 125px;
+    height: 40px;
+    right: 10px;
+    top: 5px;
+}
+
+.profile {
+    display: inline-flex;
+}
+
+.profile > div {
+    margin: 30px;
+}
+
+#avatar {
+    width: 200px;
+}
+
+#avatar > img {
+    width: 200px;
+    height: 200px;
+}
+
+#content {
+    position: static;
+}
+
+tr.spaceUnder>td {
+    padding-bottom: 2em;
+}
+
+td.spaceRight {
+    padding-right:50px
+}
+
+.inline-custom {
+    display: inline-flex;
+}
+
+.inline-custom > span {
+    margin-right: 15px;
+}
+
+.save {
+    display: none;
+}
+
+.avatarChangeBox {
+    position: relative;
+    top: 10px;
+}
+
+.avatarChangeBox > textarea {
+    resize: none;
+    width: 200px;
+    height: 75px;
+}
+
+.avatarBtn {
+    width: 200px;
+}
+
+
+#avatar-img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.avatar-dropdown {
+    display: block;
+}
+
+
+input[type=search] {
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    display: block;
+    padding: 3px;
+    line-height: 2;
+    font-family: Georgia;
+}
+
+
+.equalButton{
+    height: 10px;
+    width: 10px;
+    transform: scale(2);
+}
+
+
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}

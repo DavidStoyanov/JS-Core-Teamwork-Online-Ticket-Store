@@ -43,6 +43,7 @@ let auth = (() => {
 
     // templates
     function setAuth(ctx) {
+        ctx.avatar = sessionStorage.getItem('avatar');
         ctx.username = sessionStorage.getItem('username');
         ctx.isAdmin = sessionStorage.getItem('status') === "administrator";
         ctx.loggedIn = sessionStorage.getItem('status') === "regular" ||
@@ -59,6 +60,9 @@ let auth = (() => {
         sessionStorage.setItem('authtoken', authtoken);
         sessionStorage.setItem('status', userInfo.status ?
             userInfo.status : status);
+        sessionStorage.setItem('avatar', userInfo.imageUrl ?
+            `${userInfo.imageUrl}` :
+            `./img/unknown_user.png`);
     }
 
     function guestSession() {
@@ -67,8 +71,27 @@ let auth = (() => {
             .catch(auth.handleError);
     }
 
-    function getUser(id) {
-        return requester.get('user', id, 'kinvey');
+    function avatarDropDown() {
+        let avatar = $('#avatar-img');
+        let dropdown = $('#avatar-dropdown');
+
+        $(document).click(function(event) {
+            if(!$(event.target).closest(avatar).length) {
+                if(dropdown.is(":visible")) {
+                    dropdown.removeClass('avatar-dropdown')
+                }
+            }
+        });
+
+        dropdown.click(() => {
+            dropdown.removeClass('avatar-dropdown');
+        });
+
+        avatar.click(() => {
+            dropdown.hasClass('avatar-dropdown') ?
+                dropdown.removeClass('avatar-dropdown') :
+                dropdown.addClass('avatar-dropdown');
+        });
     }
 
     return {
@@ -79,6 +102,6 @@ let auth = (() => {
         saveSession,
         guestSession,
         setAuth,
-        getUser
+        avatarDropDown
     }
 })();

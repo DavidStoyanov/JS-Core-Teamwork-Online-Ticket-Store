@@ -1,5 +1,5 @@
 handlers.createTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 
@@ -18,6 +18,7 @@ handlers.createTicket = function (ctx) {
         auth.setAuth(ctx);
         ctx.loadPartials(partials).then(function () {
             this.partial("./templates/common/main.hbs")
+                .then(auth.avatarDropDown);
         });
     }
 };
@@ -44,7 +45,7 @@ handlers.createTicketAction = function (ctx) {
 };
 
 handlers.editTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 
@@ -74,6 +75,7 @@ handlers.editTicket = function (ctx) {
             ctx[ticketInfo.eventType] = true;
             ctx.loadPartials(partials).then(function () {
                 this.partial("./templates/common/main.hbs")
+                    .then(auth.avatarDropDown);
             });
         }
     }
@@ -107,7 +109,7 @@ handlers.editTicketAction = function (ctx) {
 };
 
 handlers.deleteTicket = function (ctx) {
-    auth.getUser(sessionStorage.getItem('userId'))
+    userService.getUser(sessionStorage.getItem('userId'))
         .then(successGetUser)
         .catch(message.handleError);
 
@@ -135,6 +137,7 @@ handlers.deleteTicket = function (ctx) {
             ctx[ticketInfo.eventType] = true;
             ctx.loadPartials(partials).then(function () {
                 this.partial("./templates/common/main.hbs")
+                    .then(auth.avatarDropDown);
             });
         }
     }

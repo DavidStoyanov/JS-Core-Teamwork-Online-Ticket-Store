@@ -1,0 +1,50 @@
+<form action="#/profile-edit" method="post">
+    <div id="greeting">
+        <h3>{{greeting}}, <span id="username">{{userInfo.username}}</span></h3>
+        <button type="submit" class="avatarTopButton btn btn-success btn-sm">Save</button>
+    </div>
+    <div class="profile">
+        <div id="avatar">
+            <img src="{{imageUrl}}">
+            <div class="edit avatarChangeBox">
+                <span><button class="editBtn avatarBtn btn btn-info btn-sm" type="button">change avatar</button></span>
+            </div>
+            <div class="save avatarChangeBox">
+                <textarea id="imageUrl">{{userInfo.imageUrl}}</textarea>
+                <span><button  class="saveBtn avatarBtn btn btn-success btn-sm" type="button">keep avatar changes</button></span>
+            </div>
+        </div>
+        <div id="content">
+            <table>
+                <tr class="spaceUnder">
+                    <td class="spaceRight"><h4>Name:</h4></td>
+                    <td class="edit inline-custom">
+                        <span><h5 id="name">{{userInfo.name}}</h5></span>
+                        <span><button class="editBtn astext" type="button">&#9998;</button></span>
+                    </td>
+                    <td class="save inline-custom">
+                        <span><input value="{{userInfo.name}}"></span>
+                        <span><button class="saveBtn astext" type="button">&#10004;</button></span>
+                    </td>
+                </tr>
+
+                <tr class="spaceUnder">
+                    <td class="spaceRight"><h4>Email:</h4></td>
+                    <td class="edit inline-custom">
+                        <span><h5 id="email">{{userInfo.email}}</h5></span>
+                        <span><button class="editBtn astext" type="button">&#9998;</button></span>
+                    </td>
+                    <td class="save inline-custom">
+                        <span><input value="{{userInfo.email}}"></span>
+                        <span><button class="saveBtn astext" type="button">&#10004;</button></span>
+                    </td>
+                </tr>
+
+                <tr class="spaceUnder">
+                    <td class="spaceRight"><h4>Member since:</h4></td>
+                    <td><h5 id="memberSince">{{memberSince}}</h5></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
