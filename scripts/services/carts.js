@@ -4,17 +4,17 @@ let cartsService = (() => {
         return requester.get('appdata', `carts?query={"userId":"${userId}"}`, 'kinvey');
     }
 
-    function buyTicket(userId, ticketId, imageUrl, price) {
+    function buyTicket(userId, ticketId, title, imageUrl, price) {
         const quantity = "1";
 
         let cartTicket = {
-            userId, ticketId, imageUrl, price, quantity
+            userId, ticketId, title, imageUrl, price, quantity
         };
 
         return requester.post('appdata', 'carts', 'kinvey', cartTicket);
     }
 
-    function updateTicketQuantity(id, userId, ticketId, imageUrl, price, quantity) {
+    function updateTicketQuantity(id, userId, ticketId, title, imageUrl, price, quantity) {
 
         let cartTicket = {
             userId, ticketId, imageUrl, price, quantity

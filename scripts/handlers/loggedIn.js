@@ -190,6 +190,43 @@ handlers.viewCart = function (ctx) {
     }
 };
 
+handlers.cartBuyTicket = function (ctx) {
+    let userId = sessionStorage.getItem('userId');
+    let ticketId = ctx.target.name;
+
+    cartsService.loadUserCart(userId)
+        .then(successLoadUserCart)
+        .catch(message.handleError);
+
+    function successLoadUserCart(userCart) {
+        let tickets = userCart.map(x => x.ticketId);
+        if (tickets.includes(ticketId)) {
+            message.showError("Ticket is already in Basket!");
+            return;
+        }
+
+        ticketsService.loadTicket(ticketId)
+            .then(successLoadTicket)
+            .catch(message.handleError);
+    }
+
+    function successLoadTicket(ticketInfo) {
+        let ticketId = ticketInfo._id;
+        let title = ticketInfo.title;
+        let imageUrl = ticketInfo.imageUrl;
+        let price = ticketInfo.price;
+
+        cartsService.buyTicket(userId, ticketId, title, imageUrl, price)
+            .then(successBuyTicket)
+            .catch(message.handleError);
+
+        function successBuyTicket() {
+            message.showInfo(`Ticket ${title} moved to your Basket.`);
+            ctx.redirect('#/cart');
+        }
+    }
+};
+
 handlers.searchTickets = function(ctx) {
     ticketsService.loadAllTickets()
         .then(successLoadTickets)

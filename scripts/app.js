@@ -37,6 +37,7 @@ $(() => {
         this.post('#/profile-edit', handlers.profileEditAction);
 
         this.get('#/cart', handlers.viewCart);
+        this.post('#/cart-buy', handlers.cartBuyTicket);
         this.post('#/cart-update', handlers.cartUpdate);
 
     }).run();
