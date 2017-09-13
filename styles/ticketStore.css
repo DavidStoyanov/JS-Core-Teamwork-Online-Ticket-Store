@@ -274,3 +274,30 @@ input[type=search] {
     margin:0;
     padding:0;
 }
+
+.info{
+    border: 2px solid white;
+    width: 70%;
+    margin: 0 auto;
+    color: yellow;
+    text-align: center;
+    font-size: 30px;
+    background: black;
+}
+
+.info #infoMembers{
+    margin: 20px;
+}
+
+.info #infoMembers li {
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#siteInfo span {
+    display: block;
+    text-align: left;
+    width: 40%;
+    margin: 0 auto;
+}
