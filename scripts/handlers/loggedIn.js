@@ -165,7 +165,7 @@ handlers.searchTickets = function (ctx) {
     function successLoadTickets(ticketsData) {
         let pattern = ctx.params.pattern;
         let ticketsFound = [];
-        let eventCriteria = ctx.params.event;
+        let eventCriteria = ctx.params.event && ctx.params.event.toLowerCase();
         let timeCriteria = convertDateTimeCriteria(ctx.params.time);
 
         for (let ticket of ticketsData) {
@@ -177,7 +177,7 @@ handlers.searchTickets = function (ctx) {
                 continue;
             }
 
-            if (eventCriteria && eventCriteria != 'any' && ticket.eventType != eventCriteria) {
+            if (eventCriteria && eventCriteria != 'any' && ticket.eventType.toLowerCase() != eventCriteria) {
                 continue;
             }
 
