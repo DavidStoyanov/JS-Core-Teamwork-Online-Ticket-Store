@@ -1,40 +1,65 @@
-<article class="filter-categories">
-    Filter options
+<form class="filter-categories" role="search" onchange="$(this).submit();" action="#/search">
+    <!--<button onclick="setTimeout(function(element){element.form.submit()}, 5000, this);return false;" type="submit">Submit</button>-->
 
+    Filter options
     <div class="custom-controls-stacked">
-        Data
-        <label class="custom-control custom-radio">
-            <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input">
+        Date
+        <label class="custom-control custom-radio" for="radioStacked1">
+            <input id="radioStacked1" name="time" type="radio" class="custom-control-input" value="7days" {{checkTime.button1}} >
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Next 7 days</span>
         </label>
         <label class="custom-control custom-radio">
-            <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input">
+            <input id="radioStacked2" name="time" type="radio" class="custom-control-input" value="30days" {{checkTime.button2}}>
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Next 30 days</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="radioStacked3" name="time" type="radio" class="custom-control-input" value="any" {{checkTime.button3}}>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Any</span>
         </label>
     </div>
     <div class="custom-controls-stacked">
         Event type
         <label class="custom-control custom-radio">
-            <input id="1" name="event" type="radio" class="custom-control-input">
+            <input id="1" name="event" type="radio" class="custom-control-input" value="movie" {{checkEvent.button1}}>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Movies</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="2" name="event" type="radio" class="custom-control-input" value="concert" {{checkEvent.button2}}>
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Concerts</span>
         </label>
         <label class="custom-control custom-radio">
-            <input id="2" name="event" type="radio" class="custom-control-input">
+            <input id="3" name="event" type="radio" class="custom-control-input" value="festival" {{checkEvent.button3}}>
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Festivals</span>
         </label>
         <label class="custom-control custom-radio">
-            <input id="3" name="event" type="radio" class="custom-control-input">
+            <input id="4" name="event" type="radio" class="custom-control-input" value="theater" {{checkEvent.button4}}>
             <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Theater</span>
+            <span class="custom-control-description">Theaters</span>
         </label>
         <label class="custom-control custom-radio">
-            <input id="4" name="event" type="radio" class="custom-control-input">
+            <input id="5" name="event" type="radio" class="custom-control-input" value="play" {{checkEvent.button5}}>
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Plays</span>
         </label>
+        <label class="custom-control custom-radio">
+            <input id="6" name="event" type="radio" class="custom-control-input" value="sport" {{checkEvent.button6}}>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Sports</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input id="7" name="event" type="radio" class="custom-control-input" value="any" {{checkEvent.button7}}>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Any</span>
+        </label>
     </div>
-</article>
+
+    {{#if pattern}}
+        <input type="hidden" name="pattern" value="{{pattern}}"></input>
+    {{/if}}
+</form>

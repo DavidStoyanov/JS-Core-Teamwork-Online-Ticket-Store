@@ -38,6 +38,7 @@ $(() => {
         this.get('#/profile-edit', handlers.profileEdit);
         this.post('#/profile-edit', handlers.profileEditAction);
 
+        //this.debug = true;
     }).run();
 
 });

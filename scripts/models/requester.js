@@ -11,10 +11,16 @@ let requester = (() => {
     }
 
     // Creates request object to kinvey
-    function makeRequest(method, module, endpoint, auth) {
+    function makeRequest(method, module, endpoint, auth, query) {
+        if(query) {
+            query = '?' + query;
+        } else{
+            query = "";
+        }
+
         return req = {
             method,
-            url: kinveyBaseUrl + module + '/' + kinveyAppKey + '/' + endpoint,
+            url: kinveyBaseUrl + module + '/' + kinveyAppKey + '/' + endpoint + query,
             headers: {
                 'Authorization': makeAuth(auth)
             }
@@ -22,8 +28,8 @@ let requester = (() => {
     }
 
     // Function to return GET promise
-    function get (module, endpoint, auth) {
-        return $.ajax(makeRequest('GET', module, endpoint, auth));
+    function get (module, endpoint, auth, query) {
+        return $.ajax(makeRequest('GET', module, endpoint, auth, query));
     }
 
     // Function to return POST promise

@@ -5,7 +5,6 @@ handlers.viewTickets = function (ctx) {
 
     function successLoadTickets(ticketsData) {
         ctx.tickets = ticketsData;
-        ctx.pattern = "Search"
         auth.setAuth(ctx);
         ctx.loadPartials({
             header: "./templates/common/header.hbs",
@@ -87,7 +86,7 @@ handlers.profileEdit = function (ctx) {
 
     function successGetUser(userInfo) {
         let hours = new Date(Date.now()).getHours();
-        
+
         if (hours >= 12 && hours < 16) {
             ctx.greeting = "Good afternoon";
         } else if (hours >= 16 && hours < 24) {
@@ -114,13 +113,13 @@ handlers.profileEdit = function (ctx) {
                 .then(attachEditBtns);
 
             function attachEditBtns() {
-                $('.editBtn').click(function() {
+                $('.editBtn').click(function () {
                     let row = $(this).parent().parent().parent();
                     row.find('.edit').hide();
                     row.find('.save').fadeIn();
                 });
 
-                $('.saveBtn').click(function() {
+                $('.saveBtn').click(function () {
                     let row = $(this).parent().parent().parent();
                     let inputVal = row.find('.save span input').val();
                     row.find('.edit span h5').text(inputVal);
@@ -158,32 +157,42 @@ handlers.profileEditAction = function (ctx) {
     }
 };
 
-handlers.searchTickets = function(ctx) {
+handlers.searchTickets = function (ctx) {
     ticketsService.loadAllTickets()
         .then(successLoadTickets)
-        .catch(auth.handleError);
+        .catch(message.handleError);
 
     function successLoadTickets(ticketsData) {
         let pattern = ctx.params.pattern;
-
         let ticketsFound = [];
+        let eventCriteria = ctx.params.event;
+        let timeCriteria = convertDateTimeCriteria(ctx.params.time);
 
-        // console.log(pattern);
-        // console.log(ticketsData);
         for (let ticket of ticketsData) {
+
             let resTitle = ticket.title.match(new RegExp(pattern, 'gi'));
             let resDescr = ticket.description.match(new RegExp(pattern, 'gi'));
 
-            if(resTitle !== null ||  resDescr!== null){
-                ticketsFound.push(ticket)
+            if (timeCriteria && new Date(ticket.dateAndTime) > timeCriteria) {
+                continue;
             }
 
+            if (eventCriteria && eventCriteria != 'any' && ticket.eventType != eventCriteria) {
+                continue;
+            }
+
+            if (resTitle == null && resDescr == null) {
+                continue;
+            }
+
+            ticketsFound.push(ticket)
         }
 
         ctx.tickets = ticketsFound;
-        ctx.pattern = pattern;
-
-
+        ctx.pattern = ctx.params.pattern;
+        ctx.time = ctx.params.time;
+        ctx.event = ctx.params.event;
+        resetCheckedButtons(ctx);
         auth.setAuth(ctx);
         ctx.loadPartials({
             header: "./templates/common/header.hbs",
@@ -194,5 +203,40 @@ handlers.searchTickets = function(ctx) {
         }).then(function () {
             this.partial("./templates/common/main.hbs");
         });
+    }
+
+    function convertDateTimeCriteria(string) {
+        let time = new Date();
+        if (string == '7days') {
+            time.setDate(time.getDate() + 7);
+        }
+        else if (string == '30days') {
+            time.setDate(time.getDate() + 30);
+        }
+        else {
+            return null;
+        }
+        return time;
+    }
+
+    function resetCheckedButtons(ctx) {
+        ctx.checkTime = {};
+        ctx.checkEvent = {};
+        let timeButtonsMap = {"7days": "button1", "30days": "button2", "any": "button3"};
+        let eventButtonsMap = {
+            "movie": "button1",
+            "concert": "button2",
+            "festival": "button3",
+            "theater": "button4",
+            "play": "button5",
+            "sport": "button6",
+            "any": "button7"
+        };
+
+        let group1 = timeButtonsMap[ctx.params.time];
+        ctx.checkTime[group1] = "checked";
+
+        let group2 = eventButtonsMap[ctx.params.event];
+        ctx.checkEvent[group2] = "checked";
     }
 }

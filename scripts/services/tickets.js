@@ -1,7 +1,9 @@
 let ticketsService = (() => {
 
     function loadAllTickets() {
-        return requester.get('appdata', 'tickets', 'kinvey');
+        let now = new Date();
+        let query = `query={"dateAndTime":{"$gt":"${now.toISOString()}"}}`
+        return requester.get('appdata', 'tickets', 'kinvey', query);
     }
 
     function loadTicket(ticketId) {
