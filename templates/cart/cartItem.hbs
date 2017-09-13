@@ -1,13 +1,13 @@
 <tr class="splitItems">
-    <td><img style="width: 100px; height: 50px" src="{{imageUrl}}"></td>
+    <td><img src="{{imageUrl}}"></td>
     <td>{{title}}</td>
     <td>{{price}} lv</td>
     <td>
         <form action="/cart-update" method="post">
-            <button type="button">-</button>
-            <input type="number" required="required" value="{{quantity}}">
-            <button type="button">+</button>
-            <input type="submit" name="commit" value="Change">
+            <button class="cart-items-btn" type="button">-</button>
+            <input class="cart-quantity-box" type="number" required="required" value="{{quantity}}">
+            <button class="cart-items-btn" type="button">+</button>
+            <input class="cart-items-btn" type="submit" name="commit" value="Change">
         </form>
     </td>
     <td>{{total}} lv</td>
