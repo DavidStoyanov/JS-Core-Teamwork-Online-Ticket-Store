@@ -38,6 +38,9 @@ $(() => {
         this.get('#/profile-edit', handlers.profileEdit);
         this.post('#/profile-edit', handlers.profileEditAction);
 
+        this.get('#/about', handlers.viewAbout);
+        this.get('#/contacts', handlers.viewContact);
+
         //this.debug = true;
     }).run();
 

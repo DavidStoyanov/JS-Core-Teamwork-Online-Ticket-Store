@@ -1,7 +1,7 @@
 handlers.viewTickets = function (ctx) {
     ticketsService.loadAllTickets()
         .then(successLoadTickets)
-        .catch(auth.handleError);
+        .catch(message.handleError);
 
     function successLoadTickets(ticketsData) {
         ctx.tickets = ticketsData;
@@ -25,7 +25,7 @@ handlers.viewTicket = function (ctx) {
     let id = ctx.params.id.substr(0);
     ticketsService.loadTicket(id)
         .then(successLoadTickets)
-        .catch(auth.handleError);
+        .catch(message.handleError);
 
     function successLoadTickets(ticketData) {
         ctx.ticket = ticketData;
@@ -46,7 +46,7 @@ handlers.viewProfile = function (ctx) {
     let userId = sessionStorage.getItem('userId');
     userService.getUser(userId)
         .then(successGetUser)
-        .catch(auth.handleError);
+        .catch(message.handleError);
 
     function successGetUser(userInfo) {
         let hours = new Date(Date.now()).getHours();
@@ -82,7 +82,7 @@ handlers.profileEdit = function (ctx) {
     let userId = sessionStorage.getItem('userId');
     userService.getUser(userId)
         .then(successGetUser)
-        .catch(auth.handleError);
+        .catch(message.handleError);
 
     function successGetUser(userInfo) {
         let hours = new Date(Date.now()).getHours();
@@ -201,7 +201,8 @@ handlers.searchTickets = function (ctx) {
             ticketBox: "./templates/tickets/viewTickets/ticketBox.hbs",
             page: "./templates/tickets/viewTickets/ticketsPage.hbs"
         }).then(function () {
-            this.partial("./templates/common/main.hbs");
+            this.partial("./templates/common/main.hbs")
+                .then(auth.avatarDropDown);
         });
     }
 
