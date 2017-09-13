@@ -1,7 +1,7 @@
 let cartsService = (() => {
 
     function loadUserCart(userId) {
-        return requester.get('appdata', `carts?query={"id":"${userId}"}`, 'kinvey');
+        return requester.get('appdata', `carts?query={"userId":"${userId}"}`, 'kinvey');
     }
 
     function buyTicket(userId, ticketId, imageUrl, price) {

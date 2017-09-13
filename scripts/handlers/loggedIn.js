@@ -159,17 +159,35 @@ handlers.profileEditAction = function (ctx) {
 };
 
 handlers.viewCart = function (ctx) {
+    cartsService.loadUserCart(sessionStorage.getItem('userId'))
+        .then(successLoadUserCart)
+        .catch(message.handleError);
 
-    auth.setAuth(ctx);
-    ctx.loadPartials({
-        header: "./templates/common/header.hbs",
-        footer: "./templates/common/footer.hbs",
-        ticket: "./templates/cart/cartItem.hbs",
-        page: "./templates/cart/cartView.hbs"
-    }).then(function () {
-        this.partial("./templates/common/main.hbs")
-            .then(auth.avatarDropDown);
-    });
+    function successLoadUserCart(cartItems) {
+        console.log(cartItems);
+
+        cartItems.map(x => x.price = round(Number(x.price)));
+        cartItems.map(x => x.total = round(Number(x.price) * Number(x.quantity)));
+
+        ctx.totalItems = cartItems.map(x => x.quantity).reduce((a, b) => a + b);
+        ctx.subTotal = cartItems.map(x => x.total).reduce((a, b) =>  Number(a) + Number(b));
+
+        ctx.tickets = cartItems;
+        auth.setAuth(ctx);
+        ctx.loadPartials({
+            header: "./templates/common/header.hbs",
+            footer: "./templates/common/footer.hbs",
+            ticket: "./templates/cart/cartItem.hbs",
+            page: "./templates/cart/cartView.hbs"
+        }).then(function () {
+            this.partial("./templates/common/main.hbs")
+                .then(auth.avatarDropDown);
+        });
+    }
+
+    function round(num) {
+        return parseFloat(Math.round(Number(num) * 100) / 100).toFixed(2);
+    }
 };
 
 handlers.searchTickets = function(ctx) {
