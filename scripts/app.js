@@ -33,10 +33,11 @@ $(() => {
         this.post('#/ticket/delete/:id', handlers.deleteTicketAction);
 
         this.get('#/profile', handlers.viewProfile);
-        //this.get('#/profile/:id', handlers.viewOtherProfile);
-
         this.get('#/profile-edit', handlers.profileEdit);
         this.post('#/profile-edit', handlers.profileEditAction);
+
+        this.get('#/cart', handlers.viewCart);
+        this.post('#/cart-update', handlers.cartUpdate);
 
     }).run();
 

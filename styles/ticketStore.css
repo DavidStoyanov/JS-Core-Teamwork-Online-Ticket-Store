@@ -203,11 +203,15 @@ footer{
     position: static;
 }
 
+tr > th,td.splitItems  {
+    padding-right:50px
+}
+
 tr.spaceUnder>td {
     padding-bottom: 2em;
 }
 
-td.spaceRight {
+th,td.spaceRight {
     padding-right:50px
 }
 

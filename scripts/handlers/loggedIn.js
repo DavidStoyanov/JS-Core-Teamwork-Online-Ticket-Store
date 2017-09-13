@@ -158,6 +158,20 @@ handlers.profileEditAction = function (ctx) {
     }
 };
 
+handlers.viewCart = function (ctx) {
+
+    auth.setAuth(ctx);
+    ctx.loadPartials({
+        header: "./templates/common/header.hbs",
+        footer: "./templates/common/footer.hbs",
+        ticket: "./templates/cart/cartItem.hbs",
+        page: "./templates/cart/cartView.hbs"
+    }).then(function () {
+        this.partial("./templates/common/main.hbs")
+            .then(auth.avatarDropDown);
+    });
+};
+
 handlers.searchTickets = function(ctx) {
     ticketsService.loadAllTickets()
         .then(successLoadTickets)
