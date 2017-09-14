@@ -46,10 +46,11 @@
         <label class="col-2 col-form-label" for="category">Event type</label>
         <div class="col-10">
             <select class="custom-select mb-2 mr-auto mb-sm-0 form-group" name="eventType" id="category">
-                <option {{#if Concerts}}selected{{/if}} value="Concerts">Concerts</option>
-                <option {{#if Festivals}}selected{{/if}} value="Festivals">Festivals</option>
+                <option {{#if Concerts}}selected{{/if}} value="Concert">Concerts</option>
+                <option {{#if Festivals}}selected{{/if}} value="Festival">Festivals</option>
                 <option {{#if Theater}}selected{{/if}} value="Theater">Theater</option>
-                <option {{#if Plays}}selected{{/if}} value="Plays">Plays</option>
+                <option {{#if Plays}}selected{{/if}} value="Play">Plays</option>
+                <option {{#if Sport}}selected{{/if}} value="Sport">Sports</option>
             </select>
         </div>
     </div>

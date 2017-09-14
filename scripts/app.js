@@ -43,7 +43,7 @@ $(() => {
         this.post('#/cart-buy', handlers.cartBuyTicket);
         this.post('#/cart-update', handlers.cartUpdateTicket);
         this.post('#/cart-remove', handlers.cartRemoveTicket);
-        
+
     }).run();
 
 });
