@@ -8,10 +8,10 @@
             <input class="cart-quantity-box cart-quantity" name="quantity" type="number" required="required" value="{{quantity}}"
                    onkeydown="return filterInput(event)" onpaste="handlePaste(event)">
             <button class="cart-items-btn up" type="button">+</button>
-            <input class="cart-items-btn" type="submit" name="commit" value="Change">
+            <input class="cart-items-btn cart-submit" type="submit" name="commit" value="Change">
         </form>
     </td>
-    <td>{{total}} lv</td>
+    <td class="total">{{total}} lv</td>
     <td>
         <form action="#/cart-remove" method="post" name="{{_id}}">
             <input type="submit" value="Remove">

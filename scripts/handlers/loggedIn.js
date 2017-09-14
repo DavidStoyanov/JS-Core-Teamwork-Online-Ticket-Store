@@ -164,8 +164,6 @@ handlers.viewCart = function (ctx) {
         .catch(message.handleError);
 
     function successLoadUserCart(cartItems) {
-        console.log(cartItems);
-
         cartItems.map(x => x.price = round(Number(x.price)));
         cartItems.map(x => x.total = round(Number(x.price) * Number(x.quantity)));
 
@@ -195,16 +193,28 @@ handlers.viewCart = function (ctx) {
             });
 
             let inputs = $('input.cart-quantity');
-            inputs.keyup((that) => {
+
+            inputs.on('input',(that) => {
                 let target = $(that.target);
                 if (target.val() < 1)
                     target.val(1);
             });
 
+            inputs.on('input', (that) => {
+                makeSubmit($(that.target));
+            });
+
+
             function changeQuantity(btn, act) {
                 let input = btn.parent().find('input[type=number]');
                 let quantity = Number(input.val()) + act;
                 quantity < 1 ? input.val(1) : input.val(quantity);
+                makeSubmit(input);
+            }
+
+            function makeSubmit(that) {
+                let form = $(that.closest('form'));
+                form.find('input[type=submit]').click();
             }
         }
     }
@@ -261,7 +271,6 @@ handlers.cartUpdateTicket = function (ctx) {
         .catch(message.handleError);
 
     function successLoadCartItem(itemInfo) {
-        console.log(itemInfo);
 
         cartsService.updateTicketQuantity(itemId, itemInfo.userId,
             itemInfo.ticketId, itemInfo.title, itemInfo.imageUrl, itemInfo.price, quantity);

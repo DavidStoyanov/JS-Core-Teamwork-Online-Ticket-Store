@@ -323,6 +323,12 @@ input.cart-quantity::-webkit-inner-spin-button {
     width:50px;
 }
 
+.cart-submit {
+    background: transparent;
+    border: none !important;
+    font-size:0;
+}
+
 .splitItems img{
     max-width: 100px;
     max-height: 50px;
