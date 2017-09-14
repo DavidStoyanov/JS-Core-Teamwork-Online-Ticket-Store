@@ -163,11 +163,13 @@ handlers.viewCart = function (ctx) {
         .catch(message.handleError);
 
     function successLoadUserCart(cartItems) {
-        cartItems.map(x => x.price = round(Number(x.price)));
-        cartItems.map(x => x.total = round(Number(x.price) * Number(x.quantity)));
+        if (cartItems.length > 0) {
+            cartItems.map(x => x.price = round(Number(x.price)));
+            cartItems.map(x => x.total = round(Number(x.price) * Number(x.quantity)));
 
-        ctx.totalItems = cartItems.map(x => Number(x.quantity)).reduce((a, b) => a + b);
-        ctx.subTotal = cartItems.map(x => x.total).reduce((a, b) =>  Number(a) + Number(b));
+            ctx.totalItems = cartItems.map(x => Number(x.quantity)).reduce((a, b) => a + b);
+            ctx.subTotal = cartItems.map(x => x.total).reduce((a, b) =>  Number(a) + Number(b));
+        }
 
         ctx.tickets = cartItems;
         auth.setAuth(ctx);
