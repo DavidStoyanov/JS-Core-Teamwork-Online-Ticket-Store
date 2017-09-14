@@ -203,11 +203,15 @@ footer{
     position: static;
 }
 
+tr > th,td.splitItems  {
+    padding-right:50px
+}
+
 tr.spaceUnder>td {
     padding-bottom: 2em;
 }
 
-td.spaceRight {
+th,td.spaceRight {
     padding-right:50px
 }
 
@@ -275,6 +279,7 @@ input[type=search] {
     padding:0;
 }
 
+
 .info{
     border: 2px solid white;
     width: 70%;
@@ -300,4 +305,83 @@ input[type=search] {
     text-align: left;
     width: 40%;
     margin: 0 auto;
+}
+
+
+
+input.cart-quantity::-webkit-outer-spin-button,
+input.cart-quantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cart-quantity {
+    width: 50px;
+}
+
+.cart-total{
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 50px;
+}
+
+.cart-total span{
+    height: 50px;
+    line-height: 50px;
+    color: #31b0d5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cart-items{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 950px;
+    height: 300px;
+    overflow-y:auto;
+    color:white;
+}
+
+.cart-quantity-box{
+    width:50px;
+}
+
+.cart-submit {
+    background: transparent;
+    border: none !important;
+    font-size:0;
+}
+
+.splitItems img{
+    max-width: 100px;
+    max-height: 50px;
+}
+
+.cart-items table td{
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.cart-title{
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color:white;
+}
+
+.cart-items table th{
+    text-align:left;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.cart-items-btn {
+    border-radius: 20px;
+>>>>>>> UserCart
 }

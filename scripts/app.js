@@ -33,15 +33,38 @@ $(() => {
         this.post('#/ticket/delete/:id', handlers.deleteTicketAction);
 
         this.get('#/profile', handlers.viewProfile);
-        //this.get('#/profile/:id', handlers.viewOtherProfile);
-
         this.get('#/profile-edit', handlers.profileEdit);
         this.post('#/profile-edit', handlers.profileEditAction);
 
         this.get('#/about', handlers.viewAbout);
         this.get('#/contacts', handlers.viewContact);
 
-        //this.debug = true;
+        this.get('#/cart', handlers.viewCart);
+        this.post('#/cart-buy', handlers.cartBuyTicket);
+        this.post('#/cart-update', handlers.cartUpdateTicket);
+        this.post('#/cart-remove', handlers.cartRemoveTicket);
+        
     }).run();
 
 });
+
+function filterInput(event) {
+    var keyCode = ('which' in event) ? event.which : event.keyCode;
+
+    isNotWanted = (keyCode == 69 || keyCode == 101);
+    return !isNotWanted;
+};
+
+function handlePaste (e) {
+    var clipboardData, pastedData;
+
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text').toUpperCase();
+
+    if(pastedData.indexOf('E')>-1) {
+        //alert('found an E');
+        e.stopPropagation();
+        e.preventDefault();
+    }
+};

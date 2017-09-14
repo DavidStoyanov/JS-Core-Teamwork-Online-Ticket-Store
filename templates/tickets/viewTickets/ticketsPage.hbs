@@ -7,7 +7,9 @@
                 <div class="category-btns">
 
                     {{#if ../loggedIn}}
-                        <button type="button" id="buyNow" class="btn btn-info btn-sm">Buy now</button>
+                    <form action="#/cart-buy" method="post" name="{{_id}}">
+                        <button type="submit" id="buyNow" class="btn btn-info btn-sm">Buy now</button>
+                    </form>
                     {{/if}}
 
                     <a type="button" id="detailsEvent" href="#/details/{{_id}}"

@@ -1,0 +1,28 @@
+<h2 class="cart-title">Cart</h2>
+
+<div class="cart-items">
+    <table>
+        <thead>
+        <tr class="splitItems">
+            <th>Tickets</th>
+            <th></th>
+            <th>Price one ticket</th>
+            <th>Quantity</th>
+            <th>Final price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each tickets}}
+            {{> ticket}}
+        {{/each}}
+        </tbody>
+    </table>
+
+</div>
+
+<div class="cart-total" >
+    <span>Subtotal ({{totalItems}} items): {{subTotal}} lv</span>
+    <div class="category-btns">
+        <button class="btn btn-info btn-sm">Order</button>
+    </div>
+</div>
