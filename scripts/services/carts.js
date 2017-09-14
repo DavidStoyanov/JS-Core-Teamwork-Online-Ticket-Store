@@ -4,6 +4,10 @@ let cartsService = (() => {
         return requester.get('appdata', `carts?query={"userId":"${userId}"}`, 'kinvey');
     }
 
+    function loadCartItem(id) {
+        return requester.get('appdata', 'carts/' + id, 'kinvey');
+    }
+
     function buyTicket(userId, ticketId, title, imageUrl, price) {
         const quantity = "1";
 
@@ -17,7 +21,7 @@ let cartsService = (() => {
     function updateTicketQuantity(id, userId, ticketId, title, imageUrl, price, quantity) {
 
         let cartTicket = {
-            userId, ticketId, imageUrl, price, quantity
+            userId, ticketId, title, imageUrl, price, quantity
         };
 
         return requester.update('appdata', 'carts/' + id, 'kinvey', cartTicket);
@@ -29,6 +33,7 @@ let cartsService = (() => {
 
     return {
         loadUserCart,
+        loadCartItem,
         buyTicket,
         updateTicketQuantity,
         removeTicket

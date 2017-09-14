@@ -278,3 +278,17 @@ input[type=search] {
     margin:0;
     padding:0;
 }
+
+
+
+input.cart-quantity::-webkit-outer-spin-button,
+input.cart-quantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cart-quantity {
+    width: 50px;
+    min: 1;
+
+}

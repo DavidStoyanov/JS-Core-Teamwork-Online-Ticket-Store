@@ -169,7 +169,7 @@ handlers.viewCart = function (ctx) {
         cartItems.map(x => x.price = round(Number(x.price)));
         cartItems.map(x => x.total = round(Number(x.price) * Number(x.quantity)));
 
-        ctx.totalItems = cartItems.map(x => x.quantity).reduce((a, b) => a + b);
+        ctx.totalItems = cartItems.map(x => Number(x.quantity)).reduce((a, b) => a + b);
         ctx.subTotal = cartItems.map(x => x.total).reduce((a, b) =>  Number(a) + Number(b));
 
         ctx.tickets = cartItems;
@@ -181,8 +181,32 @@ handlers.viewCart = function (ctx) {
             page: "./templates/cart/cartView.hbs"
         }).then(function () {
             this.partial("./templates/common/main.hbs")
-                .then(auth.avatarDropDown);
+                .then(auth.avatarDropDown)
+                .then(attachEvents);
         });
+
+        function attachEvents() {
+            $('button.up').click(function () {
+                changeQuantity($(this), 1);
+            });
+
+            $('button.down').click(function () {
+                changeQuantity($(this), -1);
+            });
+
+            let inputs = $('input.cart-quantity');
+            inputs.keyup((that) => {
+                let target = $(that.target);
+                if (target.val() < 1)
+                    target.val(1);
+            });
+
+            function changeQuantity(btn, act) {
+                let input = btn.parent().find('input[type=number]');
+                let quantity = Number(input.val()) + act;
+                quantity < 1 ? input.val(1) : input.val(quantity);
+            }
+        }
     }
 
     function round(num) {
@@ -202,7 +226,8 @@ handlers.cartBuyTicket = function (ctx) {
         let tickets = userCart.map(x => x.ticketId);
         if (tickets.includes(ticketId)) {
             message.showError("Ticket is already in Basket!");
-            return;
+            ctx.redirect('#/cart');
+            return
         }
 
         ticketsService.loadTicket(ticketId)
@@ -224,6 +249,35 @@ handlers.cartBuyTicket = function (ctx) {
             message.showInfo(`Ticket ${title} moved to your Basket.`);
             ctx.redirect('#/cart');
         }
+    }
+};
+
+handlers.cartUpdateTicket = function (ctx) {
+    let itemId = ctx.target.name;
+    let quantity = ctx.params.quantity;
+
+    cartsService.loadCartItem(itemId)
+        .then(successLoadCartItem)
+        .catch(message.handleError);
+
+    function successLoadCartItem(itemInfo) {
+        console.log(itemInfo);
+
+        cartsService.updateTicketQuantity(itemId, itemInfo.userId,
+            itemInfo.ticketId, itemInfo.title, itemInfo.imageUrl, itemInfo.price, quantity);
+    }
+};
+
+handlers.cartRemoveTicket = function (ctx) {
+    let itemId = ctx.target.name;
+
+    cartsService.removeTicket(itemId)
+        .then(successRemoveTicket)
+        .catch(message.handleError);
+
+    function successRemoveTicket() {
+        message.showInfo('Removed!');
+        location.reload();
     }
 };
 
